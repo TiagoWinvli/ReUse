@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Produtos - ReUse Já</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (Cabeçalho) -->
+    <header>
+        <div class="container">
+            <h1 class="logo">ReUse Já</h1>
+            <nav>
+                <ul>
+                    <li><a href="main.html">Início</a></li>
+                    <li><a href="produtos.html" class="active">Produtos</a></li>
+                    <li><a href="#categorias">Categorias</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Título Principal -->
+    <section class="titulo-pagina">
+        <div class="container">
+            <h1>Todos os Produtos</h1>
+            <p>Encontre o que você precisa a preços acessíveis</p>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros">
+        <div class="container">
+            <div class="filtros-content">
+                <div class="filtro-grupo">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria">
+                        <option value="">Todas as categorias</option>
+                        <option value="eletronicos">Eletrônicos</option>
+                        <option value="moveis">Móveis</option>
+                        <option value="roupas">Roupas</option>
+                        <option value="livros">Livros</option>
+                        <option value="esportes">Esportes</option>
+                        <option value="casa">Casa & Jardim</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label for="preco">Preço máximo:</label>
+                    <select id="preco">
+                        <option value="">Qualquer preço</option>
+                        <option value="50">Até R$ 50</option>
+                        <option value="100">Até R$ 100</option>
+                        <option value="200">Até R$ 200</option>
+                        <option value="500">Até R$ 500</option>
+                    </select>
+                </div>
+                <div class="filtro-grupo">
+                    <label for="localizacao">Localização:</label>
+                    <select id="localizacao">
+                        <option value="">Todas as localizações</option>
+                        <option value="sp">São Paulo</option>
+                        <option value="rj">Rio de Janeiro</option>
+                        <option value="mg">Minas Gerais</option>
+                        <option value="rs">Rio Grande do Sul</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grade de Produtos -->
+    <section class="produtos-todos">
+        <div class="container">
+            <div class="produtos-grid">
+                <!-- Produto 1 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Smartphone Samsung">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Smartphone Samsung Galaxy A32</h3>
+                        <span class="preco">R$ 450,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1533090368676-1fd25485db88?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Mesa de Escritório">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Mesa de Escritório em Madeira</h3>
+                        <span class="preco">R$ 180,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Bicicleta Urbana">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Bicicleta Urbana - 21 Marchas</h3>
+                        <span class="preco">R$ 320,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Livros">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Coleção de Livros de Ficção</h3>
+                        <span class="preco">R$ 35,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Câmera">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Câmera Fotográfica Profissional</h3>
+                        <span class="preco">R$ 280,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Fones de Ouvido">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Fones de Ouvido Bluetooth</h3>
+                        <span class="preco">R$ 60,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Videogame">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Videogame PlayStation 4</h3>
+                        <span class="preco">R$ 380,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 8 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Mochila">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Mochila de Viagem Resistente</h3>
+                        <span class="preco">R$ 75,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 9 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Ferramentas">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Kit de Ferramentas de Jardim</h3>
+                        <span class="preco">R$ 120,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 10 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Luminária">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Luminária de Mesa Decorativa</h3>
+                        <span class="preco">R$ 45,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 11 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Vestido">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Vestido de Festa Elegante</h3>
+                        <span class="preco">R$ 65,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Produto 12 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80" alt="Panelas">
+                    </div>
+                    <div class="produto-info">
+                        <h3>Kit de Panelas Antiaderente</h3>
+                        <span class="preco">R$ 95,00</span>
+                        <a href="detalhes_produto.html" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paginação -->
+            <div class="paginacao">
+                <a href="#" class="pagina-atual">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Próxima <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Rodapé) -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>ReUse Já</h2>
+                    <p>Conectando pessoas que querem dar uma segunda vida aos seus objetos. Juntos, podemos reduzir o desperdício e promover um consumo mais consciente.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="main.html">Início</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="#categorias">Categorias</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contato">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> contato@reuseja.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Siga-nos</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ReUse Já - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
