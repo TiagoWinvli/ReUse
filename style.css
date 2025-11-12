@@ -88,17 +88,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px; /* Reduzido o padding vertical para economizar espaço */
+    padding: 10px 20px; /* Padding vertical reduzido */
     position: relative;
-    overflow: hidden; /* Garante que o card não saia do main */
+    overflow: hidden; 
 }
 
 #deck-container {
     width: 90%;
     max-width: 400px;
-    /* --- CORREÇÃO DE ALTURA PARA CELULAR --- */
-    height: 100%; /* Ocupa 100% do espaço do 'main' */
-    max-height: 70vh; /* Mas nunca passa de 70% da tela */
+    height: 100%; /* Ocupa 100% do 'main' */
+    max-height: 70vh; /* Limite de 70% da tela */
     position: relative;
 }
 
@@ -106,7 +105,7 @@ main {
 .card {
     position: absolute;
     width: 100%;
-    height: 100%; /* Card agora tem 100% do deck-container */
+    height: 100%; 
     background-color: white;
     border-radius: 20px;
     box-shadow: var(--card-shadow);
@@ -197,12 +196,19 @@ main {
     transform: translate(-50%, -50%) rotate(-5deg); 
 }
 
-/* Botões de ação (Rodapé) */
+/* =================================
+  === CORREÇÃO DO RODAPÉ (FOOTER) ===
+  =================================
+*/
 footer {
-    padding: 15px 20px; /* Reduzido o padding vertical */
+    /* Ajustado o padding: 
+      20px em cima, 20px nos lados, 40px embaixo.
+      Os 40px embaixo dão espaço para os labels aparecerem.
+    */
+    padding: 20px 20px 40px; 
     display: flex;
     justify-content: center;
-    gap: 30px; /* Reduzido o gap */
+    gap: 30px; 
     background-color: #fff;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -230,20 +236,19 @@ footer {
     transform: scale(0.95);
 }
 
+/* Botões com a ordem trocada (Comprar no meio) */
 #reject-btn {
     background: linear-gradient(135deg, #FF9A9E, #FAD0C4);
     color: white;
 }
 
-/* Cor de "Trocar" (agora no botão #trade-btn) */
-#trade-btn {
-    background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
+#buy-btn { /* Botão do meio */
+    background: linear-gradient(135deg, #84FAB0, #8FD3F4);
     color: white;
 }
 
-/* Cor de "Comprar" (agora no botão #buy-btn) */
-#buy-btn {
-    background: linear-gradient(135deg, #84FAB0, #8FD3F4);
+#trade-btn { /* Botão da direita */
+    background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
     color: white;
 }
 
@@ -263,7 +268,7 @@ footer {
 
 .action-label {
     position: absolute;
-    bottom: -25px;
+    bottom: -28px; /* Ajustado para dar 3px de espaço */
     font-size: 12px;
     font-weight: 600;
     color: var(--dark);
@@ -286,11 +291,10 @@ footer {
     opacity: 0;
 }
 
-/* --- CENTRALIZAÇÃO DO MODAL ---
-  O seu código aqui já estava correto. 
-  'display: flex' e as propriedades 'justify-content' e 'align-items' 
-  garantem que o .modal-content (filho) fique perfeitamente centrado.
-  Isso se aplica a AMBOS os modais (#match-popup e #buy-popup).
+/* =================================
+  === CENTRALIZAÇÃO DOS MODAIS ===
+  =================================
+  Este código já estava correto e centraliza AMBOS os pop-ups.
 */
 .modal {
     position: fixed;
