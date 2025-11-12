@@ -88,14 +88,17 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px; /* Reduzido o padding vertical para economizar espaço */
     position: relative;
+    overflow: hidden; /* Garante que o card não saia do main */
 }
 
 #deck-container {
     width: 90%;
     max-width: 400px;
-    height: 70vh;
+    /* --- CORREÇÃO DE ALTURA PARA CELULAR --- */
+    height: 100%; /* Ocupa 100% do espaço do 'main' */
+    max-height: 70vh; /* Mas nunca passa de 70% da tela */
     position: relative;
 }
 
@@ -103,12 +106,11 @@ main {
 .card {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Card agora tem 100% do deck-container */
     background-color: white;
     border-radius: 20px;
     box-shadow: var(--card-shadow);
     overflow: hidden;
-    /* Transição inclui opacidade */
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     cursor: grab;
 }
@@ -158,7 +160,7 @@ main {
     border-radius: 15px;
 }
 
-/* --- NOVOS ESTILOS PARA OS SELOS DE AÇÃO NO CARD --- */
+/* Selos de Ação no Card */
 .action-overlay {
     position: absolute;
     top: 50%;
@@ -166,41 +168,41 @@ main {
     transform: translate(-50%, -50%) rotate(-15deg);
     padding: 10px 20px;
     border-radius: 10px;
-    font-size: 2.5em; /* Tamanho do selo */
+    font-size: 2.5em; 
     font-weight: 800;
     color: white;
-    opacity: 0; /* Começa oculto */
-    pointer-events: none; /* Não interfere com o clique/arrastar */
+    opacity: 0; 
+    pointer-events: none; 
     transition: opacity 0.2s ease-out;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 4px solid; /* Borda colorida */
+    border: 4px solid; 
     z-index: 5;
 }
 
 .action-overlay.overlay-reject {
-    background-color: rgba(255, 107, 107, 0.7); /* Vermelho */
+    background-color: rgba(255, 107, 107, 0.7); 
     border-color: var(--accent);
-    transform: translate(-50%, -50%) rotate(15deg); /* Inverte a rotação */
+    transform: translate(-50%, -50%) rotate(15deg); 
 }
 
 .action-overlay.overlay-trade {
-    background-color: rgba(74, 144, 226, 0.7); /* Azul */
+    background-color: rgba(74, 144, 226, 0.7); 
     border-color: var(--primary);
 }
 
 .action-overlay.overlay-buy {
-    background-color: rgba(107, 207, 127, 0.7); /* Verde */
+    background-color: rgba(107, 207, 127, 0.7); 
     border-color: var(--success);
-    transform: translate(-50%, -50%) rotate(-5deg); /* Outra rotação */
+    transform: translate(-50%, -50%) rotate(-5deg); 
 }
 
 /* Botões de ação (Rodapé) */
 footer {
-    padding: 25px 20px;
+    padding: 15px 20px; /* Reduzido o padding vertical */
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px; /* Reduzido o gap */
     background-color: #fff;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -233,17 +235,19 @@ footer {
     color: white;
 }
 
+/* Cor de "Trocar" (agora no botão #trade-btn) */
 #trade-btn {
     background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
     color: white;
 }
 
+/* Cor de "Comprar" (agora no botão #buy-btn) */
 #buy-btn {
     background: linear-gradient(135deg, #84FAB0, #8FD3F4);
     color: white;
 }
 
-/* --- NOVOS ESTILOS PARA ANIMAÇÃO DOS BOTÕES --- */
+/* Animação dos botões */
 .action-btn.active-reject {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
@@ -282,7 +286,12 @@ footer {
     opacity: 0;
 }
 
-/* Modais */
+/* --- CENTRALIZAÇÃO DO MODAL ---
+  O seu código aqui já estava correto. 
+  'display: flex' e as propriedades 'justify-content' e 'align-items' 
+  garantem que o .modal-content (filho) fique perfeitamente centrado.
+  Isso se aplica a AMBOS os modais (#match-popup e #buy-popup).
+*/
 .modal {
     position: fixed;
     top: 0;
