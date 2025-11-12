@@ -201,21 +201,23 @@ main {
   =================================
 */
 footer {
-    /* Ajustado o padding: 
-      20px em cima, 20px nos lados, 40px embaixo.
-      Os 40px embaixo dão espaço para os labels aparecerem.
-    */
-    padding: 20px 20px 40px; 
+    padding: 10px 20px; /* Reduzido o padding vertical */
+    height: 110px; /* Altura fixa para botões + labels */
     display: flex;
     justify-content: center;
+    align-items: center; /* Centraliza verticalmente */
     gap: 30px; 
     background-color: #fff;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }
 
+/*
+  Agora, o .action-btn é um container flex
+  para o ícone E o label
+*/
 .action-btn {
     width: 70px;
-    height: 70px;
+    height: 70px; /* Altura SÓ do botão */
     border-radius: 50%;
     border: none;
     font-size: 24px;
@@ -225,55 +227,72 @@ footer {
     align-items: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    position: relative;
+    
+    /* Posição estática, não mais relativa */
+    position: static; 
+    
+    /* Criamos um "wrapper" para o botão e seu label */
+    flex-direction: column;
+    width: auto; /* Largura automática */
+    height: auto; /* Altura automática */
+    background: none; /* Fundo vai para o wrapper-interno */
+    box-shadow: none;
+    gap: 8px; /* Espaço entre o botão (agora .btn-icon) e o label */
 }
 
-.action-btn:hover {
-    transform: translateY(-5px);
+/* Criamos um círculo interno para o ícone */
+.action-btn .btn-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.action-btn:active {
-    transform: scale(0.95);
-}
 
 /* Botões com a ordem trocada (Comprar no meio) */
-#reject-btn {
+#reject-btn .btn-icon {
     background: linear-gradient(135deg, #FF9A9E, #FAD0C4);
     color: white;
 }
 
-#buy-btn { /* Botão do meio */
+#buy-btn .btn-icon { /* Botão do meio */
     background: linear-gradient(135deg, #84FAB0, #8FD3F4);
     color: white;
 }
 
-#trade-btn { /* Botão da direita */
+#trade-btn .btn-icon { /* Botão da direita */
     background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
     color: white;
 }
 
 /* Animação dos botões */
-.action-btn.active-reject {
+.action-btn.active-reject .btn-icon {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
-.action-btn.active-trade {
+.action-btn.active-trade .btn-icon {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
-.action-btn.active-buy {
+.action-btn.active-buy .btn-icon {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(107, 207, 127, 0.4);
 }
 
+/* O label agora é um item flex normal, não absoluto */
 .action-label {
-    position: absolute;
-    bottom: -28px; /* Ajustado para dar 3px de espaço */
+    position: static; 
     font-size: 12px;
     font-weight: 600;
     color: var(--dark);
     white-space: nowrap;
 }
+
 
 /* Animações de saída */
 .card-exiting-left {
@@ -291,11 +310,7 @@ footer {
     opacity: 0;
 }
 
-/* =================================
-  === CENTRALIZAÇÃO DOS MODAIS ===
-  =================================
-  Este código já estava correto e centraliza AMBOS os pop-ups.
-*/
+/* Modais (Centralização já estava correta) */
 .modal {
     position: fixed;
     top: 0;
@@ -455,14 +470,18 @@ footer {
 
 /* Responsividade */
 @media (max-width: 480px) {
-    .action-btn {
-        width: 60px;
+    /* Ajustes para telas pequenas: 
+      Botões menores, labels menores, gap menor
+    */
+    footer {
+        gap: 20px; /* Gap menor */
+        height: 100px; /* Rodapé menor */
+    }
+
+    .action-btn .btn-icon {
+        width: 60px; /* Botão menor */
         height: 60px;
         font-size: 20px;
-    }
-    
-    footer {
-        gap: 25px;
     }
     
     .action-label {
@@ -470,7 +489,7 @@ footer {
     }
 
     .action-overlay {
-        font-size: 2.5em; /* Ajuste para telas menores */
+        font-size: 2.5em; 
         padding: 10px 20px;
     }
 }
