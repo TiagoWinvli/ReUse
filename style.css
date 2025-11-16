@@ -27,8 +27,116 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Previne scroll da página */
+    /* overflow: hidden; foi removido para evitar corte dos botões */
 }
+
+/* =========================== */
+/* === NOVOS ESTILOS (Telas de Entrada) === */
+/* =========================== */
+
+.full-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* --- Tela de Boas-Vindas --- */
+#welcome-screen .welcome-content {
+    max-width: 500px;
+}
+.welcome-logo {
+    font-size: 60px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+#welcome-screen h1 {
+    font-size: 2.2rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+#welcome-screen p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+#start-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* --- Tela de Filtro --- */
+#filter-screen .filter-content {
+    width: 100%;
+    max-width: 600px;
+}
+#filter-screen h2 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+#filter-screen p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+.filter-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.filter-option {
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.filter-option i {
+    font-size: 1.8rem;
+    color: var(--gray);
+    transition: all 0.3s ease;
+}
+.filter-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.filter-option.active {
+    border-color: var(--primary);
+    background: #f0f6ff;
+}
+.filter-option.active i {
+    color: var(--primary);
+}
+#apply-filter-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+
+/* =========================== */
+/* === ESTILOS DO APP PRINCIPAL === */
+/* =========================== */
 
 /* Header */
 header {
@@ -39,6 +147,7 @@ header {
     align-items: center;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     z-index: 10;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -84,20 +193,19 @@ header {
 
 /* Área principal do deck */
 main {
-    flex: 1;
+    flex: 1; /* Ocupa todo o espaço restante */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px; /* Padding vertical reduzido */
+    padding: 20px;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden; /* O main corta o conteúdo, não o body */
 }
 
 #deck-container {
     width: 90%;
     max-width: 400px;
     height: 100%; /* Ocupa 100% do 'main' */
-    max-height: 70vh; /* Limite de 70% da tela */
     position: relative;
 }
 
@@ -196,28 +304,20 @@ main {
     transform: translate(-50%, -50%) rotate(-5deg); 
 }
 
-/* =================================
-  === CORREÇÃO DO RODAPÉ (FOOTER) ===
-  =================================
-*/
+/* Rodapé */
 footer {
-    padding: 10px 20px; /* Reduzido o padding vertical */
-    height: 110px; /* Altura fixa para botões + labels */
+    padding: 25px 20px 40px; /* Padding-bottom para dar espaço aos labels */
     display: flex;
     justify-content: center;
-    align-items: center; /* Centraliza verticalmente */
-    gap: 30px; 
+    gap: 40px;
     background-color: #fff;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0; 
 }
 
-/*
-  Agora, o .action-btn é um container flex
-  para o ícone E o label
-*/
 .action-btn {
     width: 70px;
-    height: 70px; /* Altura SÓ do botão */
+    height: 70px;
     border-radius: 50%;
     border: none;
     font-size: 24px;
@@ -227,90 +327,72 @@ footer {
     align-items: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    
-    /* Posição estática, não mais relativa */
-    position: static; 
-    
-    /* Criamos um "wrapper" para o botão e seu label */
-    flex-direction: column;
-    width: auto; /* Largura automática */
-    height: auto; /* Altura automática */
-    background: none; /* Fundo vai para o wrapper-interno */
-    box-shadow: none;
-    gap: 8px; /* Espaço entre o botão (agora .btn-icon) e o label */
+    position: relative; /* Labels dependem disso */
 }
 
-/* Criamos um círculo interno para o ícone */
-.action-btn .btn-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+.action-btn:hover {
+    transform: translateY(-5px);
 }
 
+.action-btn:active {
+    transform: scale(0.95);
+}
 
-/* Botões com a ordem trocada (Comprar no meio) */
-#reject-btn .btn-icon {
+/* Ordem dos botões trocada */
+#reject-btn {
     background: linear-gradient(135deg, #FF9A9E, #FAD0C4);
     color: white;
 }
 
-#buy-btn .btn-icon { /* Botão do meio */
+#buy-btn { /* Botão do meio */
     background: linear-gradient(135deg, #84FAB0, #8FD3F4);
     color: white;
 }
 
-#trade-btn .btn-icon { /* Botão da direita */
+#trade-btn { /* Botão da direita */
     background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
     color: white;
 }
 
 /* Animação dos botões */
-.action-btn.active-reject .btn-icon {
+.action-btn.active-reject {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
-.action-btn.active-trade .btn-icon {
+.action-btn.active-trade {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
-.action-btn.active-buy .btn-icon {
+.action-btn.active-buy {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(107, 207, 127, 0.4);
 }
 
-/* O label agora é um item flex normal, não absoluto */
+/* Labels */
 .action-label {
-    position: static; 
+    position: absolute;
+    bottom: -25px; /* Posição abaixo do botão */
     font-size: 12px;
     font-weight: 600;
     color: var(--dark);
     white-space: nowrap;
 }
 
-
 /* Animações de saída */
 .card-exiting-left {
     transform: translateX(-150%) rotate(-20deg);
     opacity: 0;
 }
-
 .card-exiting-right {
     transform: translateX(150%) rotate(20deg);
     opacity: 0;
 }
-
 .card-exiting-up {
     transform: translateY(-150%);
     opacity: 0;
 }
 
-/* Modais (Centralização já estava correta) */
+/* Modais */
 .modal {
     position: fixed;
     top: 0;
@@ -355,27 +437,22 @@ footer {
     font-size: 60px;
     margin-bottom: 20px;
 }
-
 .match-icon {
     color: var(--primary);
 }
-
 .buy-icon {
     color: var(--success);
 }
-
 .modal h2 {
     margin-bottom: 15px;
     color: var(--dark);
     font-size: 24px;
 }
-
 .modal p {
     margin-bottom: 25px;
     line-height: 1.5;
     color: var(--gray);
 }
-
 .modal-btn {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
@@ -388,14 +465,14 @@ footer {
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
 }
-
 .modal-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
 
+/* Classe .hidden (agora super importante) */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* Mensagem de fim dos cards */
@@ -404,16 +481,13 @@ footer {
     color: var(--gray);
     padding: 40px 20px;
 }
-
 .end-message h2 {
     margin-bottom: 15px;
     font-size: 24px;
 }
-
 .end-message p {
     font-size: 16px;
 }
-
 .refresh-btn {
     margin-top: 20px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -426,7 +500,6 @@ footer {
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
 .refresh-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
@@ -443,7 +516,6 @@ footer {
     pointer-events: none;
     z-index: 5;
 }
-
 .swipe-left, .swipe-right, .swipe-up {
     padding: 8px 15px;
     border-radius: 20px;
@@ -452,17 +524,14 @@ footer {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .swipe-left {
     background-color: var(--accent);
     color: white;
 }
-
 .swipe-right {
     background-color: var(--primary);
     color: white;
 }
-
 .swipe-up {
     background-color: var(--success);
     color: white;
@@ -470,26 +539,24 @@ footer {
 
 /* Responsividade */
 @media (max-width: 480px) {
-    /* Ajustes para telas pequenas: 
-      Botões menores, labels menores, gap menor
-    */
-    footer {
-        gap: 20px; /* Gap menor */
-        height: 100px; /* Rodapé menor */
-    }
-
-    .action-btn .btn-icon {
-        width: 60px; /* Botão menor */
+    .action-btn {
+        width: 60px;
         height: 60px;
         font-size: 20px;
     }
     
+    footer {
+        gap: 25px;
+        padding: 20px 20px 35px; /* Padding menor para telas pequenas */
+    }
+    
     .action-label {
         font-size: 11px;
+        bottom: -22px; /* Mais perto do botão */
     }
 
     .action-overlay {
-        font-size: 2.5em; 
+        font-size: 2.5em; /* Ajuste para telas menores */
         padding: 10px 20px;
     }
 }

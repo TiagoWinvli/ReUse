@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-R">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReUse - Descubra roupas únicas</title>
     
@@ -10,7 +10,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+
+    <div id="welcome-screen" class="full-screen-overlay">
+        <div class="welcome-content">
+            <i class="fas fa-recycle welcome-logo"></i>
+            <h1>Bem-vindo(a) ao ReUse</h1>
+            <p>Sua nova plataforma para trocar e descobrir peças de roupa incríveis. Dê uma nova vida ao seu guarda-roupa!</p>
+            <button id="start-btn" class="modal-btn">Começar</button>
+        </div>
+    </div>
+
+    <div id="filter-screen" class="full-screen-overlay hidden">
+        <div class="filter-content">
+            <h2>O que você procura hoje?</h2>
+            <p>Selecione uma ou mais categorias.</p>
+            
+            <div class="filter-options-grid">
+                <button class="filter-option" data-filter="camisas">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Camisas</span>
+                </button>
+                <button class="filter-option" data-filter="calcas">
+                    <i class="fa-solid fa-person-running"></i> <span>Calças</span>
+                </button>
+                <button class="filter-option" data-filter="tenis">
+                    <i class="fas fa-shoe-prints"></i>
+                    <span>Tênis</span>
+                </button>
+
+                <button class="filter-option" data-filter="casacos">
+                    <i class="fa-solid fa-user-secret"></i> <span>Casacos</span>
+                </button>
+                <button class="filter-option" data-filter="vestidos">
+                    <i class="fas fa-female"></i> <span>Vestidos</span>
+                </button>
+                <button class="filter-option active" data-filter="todos">
+                    <i class="fas fa-globe"></i>
+                    <span>Ver Tudo</span>
+                </button>
+            </div>
+
+            <button id="apply-filter-btn" class="modal-btn">Ver Itens</button>
+        </div>
+    </div>
+
+    <header class="hidden">
         <div class="logo">
             <i class="fas fa-recycle logo-icon"></i>
             ReUse
@@ -25,7 +69,7 @@
         </div>
     </header>
 
-    <main>
+    <main class="hidden">
         <div id="deck-container">
             </div>
         
@@ -66,22 +110,23 @@
         </div>
     </template>
 
-    <footer>
+    <footer class="hidden">
         <button id="reject-btn" class="action-btn">
-            <div class="btn-icon"><i class="fas fa-times"></i></div>
+            <i class="fas fa-times"></i>
             <span class="action-label">Não Gostei</span>
         </button>
-
+        
         <button id="buy-btn" class="action-btn">
-            <div class="btn-icon"><i class="fas fa-shopping-bag"></i></div>
+            <i class="fas fa-shopping-bag"></i>
             <span class="action-label">Comprar</span>
         </button>
 
         <button id="trade-btn" class="action-btn">
-            <div class="btn-icon"><i class="fas fa-heart"></i></div>
+            <i class="fas fa-heart"></i>
             <span class="action-label">Trocar</span>
         </button>
     </footer>
+
     <div id="match-popup" class="modal hidden">
         <div class="modal-content">
             <div class="modal-icon match-icon">
