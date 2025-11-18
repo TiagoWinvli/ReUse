@@ -20,6 +20,30 @@
         </div>
     </div>
 
+    <div id="gender-screen" class="full-screen-overlay hidden">
+        <div class="gender-content">
+            <h2>Para quem você está procurando?</h2>
+            <p>Selecione o gênero das roupas que deseja visualizar.</p>
+            
+            <div class="gender-options-grid">
+                <button class="gender-option" data-gender="feminino">
+                    <i class="fas fa-female"></i>
+                    <span>Feminino</span>
+                </button>
+                <button class="gender-option" data-gender="masculino">
+                    <i class="fas fa-male"></i>
+                    <span>Masculino</span>
+                </button>
+                <button class="gender-option active" data-gender="todos">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Todos</span>
+                </button>
+            </div>
+
+            <button id="apply-gender-btn" class="modal-btn">Continuar</button>
+        </div>
+    </div>
+
     <div id="filter-screen" class="full-screen-overlay hidden">
         <div class="filter-content">
             <h2>O que você procura hoje?</h2>
@@ -31,18 +55,20 @@
                     <span>Camisas</span>
                 </button>
                 <button class="filter-option" data-filter="calcas">
-                    <i class="fa-solid fa-person-running"></i> <span>Calças</span>
+                    <i class="fa-solid fa-person-running"></i>
+                    <span>Calças</span>
                 </button>
                 <button class="filter-option" data-filter="tenis">
                     <i class="fas fa-shoe-prints"></i>
                     <span>Tênis</span>
                 </button>
-
                 <button class="filter-option" data-filter="casacos">
-                    <i class="fa-solid fa-user-secret"></i> <span>Casacos</span>
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>Casacos</span>
                 </button>
                 <button class="filter-option" data-filter="vestidos">
-                    <i class="fas fa-female"></i> <span>Vestidos</span>
+                    <i class="fas fa-female"></i>
+                    <span>Vestidos</span>
                 </button>
                 <button class="filter-option active" data-filter="todos">
                     <i class="fas fa-globe"></i>
@@ -55,11 +81,14 @@
     </div>
 
     <header class="hidden">
-        <div class="logo">
+        <div class="logo" id="app-logo" title="Voltar ao Início">
             <i class="fas fa-recycle logo-icon"></i>
             ReUse
         </div>
         <div class="header-icons">
+            <div class="icon" id="back-to-filter-btn" title="Voltar aos Filtros">
+                <i class="fas fa-sliders-h"></i>
+            </div>
             <div class="icon">
                 <i class="fas fa-user"></i>
             </div>
@@ -83,7 +112,6 @@
     <template id="card-template">
         <div class="card">
             <img class="card-image" src="" alt="Imagem do item">
-            
             <div class="action-overlay overlay-reject">NÃO</div>
             <div class="action-overlay overlay-trade">TROCAR</div>
             <div class="action-overlay overlay-buy">COMPRAR</div>
@@ -112,17 +140,17 @@
 
     <footer class="hidden">
         <button id="reject-btn" class="action-btn">
-            <i class="fas fa-times"></i>
+            <div class="btn-icon"><i class="fas fa-times"></i></div>
             <span class="action-label">Não Gostei</span>
         </button>
         
         <button id="buy-btn" class="action-btn">
-            <i class="fas fa-shopping-bag"></i>
+            <div class="btn-icon"><i class="fas fa-shopping-bag"></i></div>
             <span class="action-label">Comprar</span>
         </button>
 
         <button id="trade-btn" class="action-btn">
-            <i class="fas fa-heart"></i>
+            <div class="btn-icon"><i class="fas fa-heart"></i></div>
             <span class="action-label">Trocar</span>
         </button>
     </footer>

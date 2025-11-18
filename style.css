@@ -1,5 +1,5 @@
 /* =================== */
-/* === CSS ATUALIZADO === */
+/* === CSS GERAL === */
 /* =================== */
 
 /* Reset e estilos básicos */
@@ -27,11 +27,10 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    /* overflow: hidden; foi removido para evitar corte dos botões */
 }
 
 /* =========================== */
-/* === NOVOS ESTILOS (Telas de Entrada) === */
+/* === TELAS DE ENTRADA === */
 /* =========================== */
 
 .full-screen-overlay {
@@ -50,7 +49,6 @@ body {
     animation: fadeIn 0.5s ease;
 }
 
-/* --- Tela de Boas-Vindas --- */
 #welcome-screen .welcome-content {
     max-width: 500px;
 }
@@ -75,7 +73,65 @@ body {
     font-size: 1.1rem;
 }
 
-/* --- Tela de Filtro --- */
+/* Tela de Gênero */
+#gender-screen .gender-content {
+    width: 100%;
+    max-width: 600px;
+}
+#gender-screen h2 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+#gender-screen p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+.gender-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.gender-option {
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    padding: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.gender-option i {
+    font-size: 2.5rem;
+    color: var(--gray);
+    transition: all 0.3s ease;
+}
+.gender-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.gender-option.active {
+    border-color: var(--primary);
+    background: #f0f6ff;
+}
+.gender-option.active i {
+    color: var(--primary);
+}
+#apply-gender-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* Tela de Filtro */
 #filter-screen .filter-content {
     width: 100%;
     max-width: 600px;
@@ -133,7 +189,6 @@ body {
     font-size: 1.1rem;
 }
 
-
 /* =========================== */
 /* === ESTILOS DO APP PRINCIPAL === */
 /* =========================== */
@@ -159,6 +214,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .logo-icon {
@@ -193,19 +249,20 @@ header {
 
 /* Área principal do deck */
 main {
-    flex: 1; /* Ocupa todo o espaço restante */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     position: relative;
-    overflow: hidden; /* O main corta o conteúdo, não o body */
+    overflow: hidden;
 }
 
 #deck-container {
     width: 90%;
     max-width: 400px;
-    height: 100%; /* Ocupa 100% do 'main' */
+    height: 100%;
+    max-height: 70vh;
     position: relative;
 }
 
@@ -306,7 +363,7 @@ main {
 
 /* Rodapé */
 footer {
-    padding: 25px 20px 40px; /* Padding-bottom para dar espaço aos labels */
+    padding: 25px 20px 40px;
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -327,7 +384,7 @@ footer {
     align-items: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    position: relative; /* Labels dependem disso */
+    position: relative;
 }
 
 .action-btn:hover {
@@ -338,40 +395,50 @@ footer {
     transform: scale(0.95);
 }
 
-/* Ordem dos botões trocada */
-#reject-btn {
+#reject-btn .btn-icon {
     background: linear-gradient(135deg, #FF9A9E, #FAD0C4);
     color: white;
 }
 
-#buy-btn { /* Botão do meio */
+#buy-btn .btn-icon { 
     background: linear-gradient(135deg, #84FAB0, #8FD3F4);
     color: white;
 }
 
-#trade-btn { /* Botão da direita */
+#trade-btn .btn-icon { 
     background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
     color: white;
 }
 
+.action-btn .btn-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
 /* Animação dos botões */
-.action-btn.active-reject {
+.action-btn.active-reject .btn-icon {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
-.action-btn.active-trade {
+.action-btn.active-trade .btn-icon {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
-.action-btn.active-buy {
+.action-btn.active-buy .btn-icon {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 8px 20px rgba(107, 207, 127, 0.4);
 }
 
-/* Labels */
 .action-label {
     position: absolute;
-    bottom: -25px; /* Posição abaixo do botão */
+    bottom: -25px;
     font-size: 12px;
     font-weight: 600;
     color: var(--dark);
@@ -383,10 +450,12 @@ footer {
     transform: translateX(-150%) rotate(-20deg);
     opacity: 0;
 }
+
 .card-exiting-right {
     transform: translateX(150%) rotate(20deg);
     opacity: 0;
 }
+
 .card-exiting-up {
     transform: translateY(-150%);
     opacity: 0;
@@ -470,9 +539,8 @@ footer {
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
 
-/* Classe .hidden (agora super importante) */
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 /* Mensagem de fim dos cards */
@@ -558,5 +626,12 @@ footer {
     .action-overlay {
         font-size: 2.5em; /* Ajuste para telas menores */
         padding: 10px 20px;
+    }
+    
+    .gender-option {
+        padding: 20px;
+    }
+    .gender-option i {
+        font-size: 2rem;
     }
 }
